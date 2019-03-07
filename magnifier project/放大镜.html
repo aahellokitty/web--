@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>js版</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .block {
+            position: relative;
+            width: 350px;
+            height: 533px;
+            margin: 0 auto;
+        }
+
+        .centerimage {
+            position: relative;
+            width: 350px;
+            height: 449px;
+            overflow: hidden;
+        }
+
+        .smallimage {
+            width: 300px;
+            height: 64px;
+            margin-top: 20px;
+            margin-left: 25px;
+        }
+
+        .centerimage > img {
+            width: 350px;
+            height: 449px;
+            vertical-align: middle;
+        }
+
+        .smallimage > div {
+            width: 50px;
+            height: 64px;
+            float: left;
+            margin: 0 3px;
+            border: 2px solid transparent;
+            /*#e60000*/
+        }
+
+        .smallimage img {
+            width: 50px;
+            height: 64px;
+            vertical-align: middle;
+        }
+
+        .ceng {
+            position: absolute;
+            display: none;
+            z-index: 1;
+            width: 236.25px;
+            height: 236.31px;
+            background: url("./image/1.png");
+            background-size: 3px 3px;
+        }
+
+        .bigImage {
+            position: absolute;
+            left: 350px;
+            width: 533px;
+            height: 537px;
+            border: 1px solid silver;
+            box-sizing: border-box;
+            display: none;
+            background-repeat: no-repeat;
+            background-size: 800px 1026px;
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div class="bigImage"></div>
+    <div class="centerimage" data-src="./image/5b7cf1e5Nb30e8c50.jpg!cc_800x1026.jpg">
+        <div class="ceng"></div>
+        <img class="middleImage" src="./image/5b7cf1e5Nb30e8c50.jpg!cc_350x449.jpg" alt=""/>
+    </div>
+    <div class="smallimage">
+        <div class="small" data-big="./image/5b7cf1e5Nb30e8c50.jpg!cc_800x1026.jpg"
+             data-src="./image/5b7cf1e5Nb30e8c50.jpg!cc_350x449.jpg"><img
+                src="./image/5b7cf1e5Nb30e8c50.jpg!cc_50x64.jpg" alt=""/></div>
+        <div class="small" data-big="./image/5b7cf1e9Nd7350f8b.jpg!cc_800x1026.jpg"
+             data-src="./image/5b7cf1e9Nd7350f8b.jpg!cc_350x449.jpg"><img
+                src="./image/5b7cf1e9Nd7350f8b.jpg!cc_50x64.jpg" alt=""/></div>
+        <div class="small" data-big="./image/5b7cf1ebNdf72f42b.jpg!cc_800x1026.jpg"
+             data-src="./image/5b7cf1ebNdf72f42b.jpg!cc_350x449.jpg"><img
+                src="./image/5b7cf1ebNdf72f42b.jpg!cc_50x64.jpg" alt=""/></div>
+        <div class="small" data-big="./image/5b7cf1ecN6742c614.jpg!cc_800x1026.jpg"
+             data-src="./image/5b7cf1ecN6742c614.jpg!cc_350x449.jpg"><img
+                src="./image/5b7cf1ecN6742c614.jpg!cc_50x64.jpg" alt=""/></div>
+        <div class="small" data-big="./image/5b7cf1eeN9a440daf.jpg!cc_800x1026.jpg"
+             data-src="./image/5b7cf1eeN9a440daf.jpg!cc_350x449.jpg"><img
+                src="./image/5b7cf1eeN9a440daf.jpg!cc_50x64.jpg" alt=""/></div>
+    </div>
+</div>
+<script>
+    /*1.鼠标进入小的img切换边框色*/
+    var block = document.getElementsByClassName("block")[0];
+    var bigImage = document.getElementsByClassName("bigImage")[0];
+    var center = document.getElementsByClassName("centerimage")[0];
+    var cengD = document.getElementsByClassName("ceng")[0];
+    var middle = document.getElementsByClassName("middleImage")[0];
+    var smallImage = document.getElementsByClassName("small");
+    smallImage[0].style.borderColor = "#e60000";
+    var redborderObject = smallImage[0];
+    for (var i = 0; i < smallImage.length; i++) {
+        smallImage[i].onmouseenter = function () {
+            redborderObject.style.borderColor = "transparent";
+            this.style.borderColor = "#e60000";
+            redborderObject = this;
+            //在鼠标进入的时候去获取当前小图所对应的中图
+            middle.src = this.getAttribute("data-src");
+            center.setAttribute("data-src", this.getAttribute("data-big"))
+        }
+    }
+    center.onmouseenter = function () {
+        bigImage.style.display = "block";
+        cengD.style.display = "block";
+        //让最大的图切换 并且移动
+        bigImage.style.backgroundImage = "url(" + center.getAttribute("data-src") + ")";
+    }
+    center.onmousemove = function (e) {
+        this.style.cursor = "move";
+        var x = e.pageX || e.clientX;
+        var y = e.pageY || e.clientY;
+        //如果你的容器是在中间  并且你不知道它的左边距  坐标得减掉当前容器的偏移量
+        var left = (x - block.offsetLeft - 118.125) <= 0 ? 0 : (x - block.offsetLeft - 118.125) >= 113.75 ? 113.75 : (x - block.offsetLeft - 118.125);
+        var top = (y - block.offsetTop - 118.115) <= 0 ? 0 : (y - block.offsetTop - 118.115) >= 212.69 ? 212.69 : (y - block.offsetTop - 118.115);
+        cengD.style.left = left + "px";
+        cengD.style.top = top + "px";
+
+        //鼠标移动的时候控制大图移动
+        bigImage.style.backgroundPosition = -left * 2.28 + "px " + -(top * 2.28) + "px";
+    }
+    center.onmouseleave = function () {
+        cengD.style.display = "none";
+        bigImage.style.display = "none";
+    }
+
+</script>
+</body>
+</html>
