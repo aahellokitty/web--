@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        #d1, #d4 {
+            width: 3200px;
+            height: 200px;
+            float: left;
+        }
+
+        #d1 > img, #d4 > img {
+            width: 400px;
+            height: 200px;
+            float: left;
+        }
+
+        #d3 {
+            width: 1500px;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        #d2 {
+            width: 6400px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+<div id="d3">
+    <div id="d2">
+        <div id="d1">
+            <img src="./img/111.jpg" alt=""/>
+            <img src="./img/222.jpg" alt=""/>
+            <img src="./img/333.jpg" alt=""/>
+            <img src="./img/444.jpg" alt=""/>
+            <img src="./img/555.jpg" alt=""/>
+            <img src="./img/666.jpg" alt=""/>
+            <img src="./img/777.jpg" alt=""/>
+            <img src="./img/888.jpg" alt=""/>
+        </div>
+        <div id="d4">
+        </div>
+    </div>
+</div>
+<script>
+    /* 让图片显示一排   右-左  滚动  按照一定的速度*/
+    var d3 = document.getElementById("d3");
+    var d4 = document.getElementById("d4");
+    var d1 = document.getElementById("d1");
+    d4.innerHTML = d1.innerHTML;
+    var speed = 1;
+    var time;
+    showimag();
+    function showimag(){
+        time= setInterval(function () {
+            if (d3.scrollLeft == 3200) {
+                d3.scrollLeft = 0;
+            }
+            var scroll = d3.scrollLeft;
+            scroll += speed;
+            d3.scrollLeft = scroll;
+        }, 1);
+    }
+    d3.onmouseenter=function (){
+        clearInterval(time);
+    };
+    d3.onmouseleave=function (){
+        showimag();
+    }
+</script>
+</body>
+</html>

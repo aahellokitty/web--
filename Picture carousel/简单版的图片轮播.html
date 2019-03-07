@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .b {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 1px solid silver;
+            margin: 100px auto;
+        }
+
+        .a {
+            position: relative;
+            width: 600px;
+            height: 400px;
+        }
+
+        .a > img {
+            position: absolute;
+            width: 600px;
+            height: 400px;
+            transition: opacity 1s linear;
+        }
+
+        .imgop {
+            opacity: 0;
+        }
+
+        .imgopshow {
+            opacity: 1;
+        }
+
+        .dian {
+            position: absolute;
+            z-index: 99999;
+            bottom: 20px;
+            left: 40px;
+            height: 13px;
+        }
+
+        .dian > div {
+            width: 13px;
+            height: 13px;
+            border: 1px solid white;
+            background-color: transparent;
+            box-sizing: border-box;
+            float: left;
+            margin: 0 3px;
+            border-radius: 50%;
+            transition: background-color 1s linear;
+        }
+
+        .dbg {
+            background-color: red !important;
+        }
+
+        .btn {
+            width: 600px;
+            height: 50px;
+            position: absolute;
+            z-index: 999;
+            top: 175px;
+        }
+
+        .btnleft {
+            cursor: pointer;
+            display: block;
+            width: 30px;
+            height: 50px;
+            background-color: silver;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            float: left;
+        }
+
+        .btnright {
+            cursor: pointer;
+            display: block;
+            width: 30px;
+            height: 50px;
+            background-color: silver;
+            color: white;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+<div class="b">
+    <div class="btn">
+        <span class="btnleft"><</span>
+        <span class="btnright">></span>
+    </div>
+    <div class="a">
+        <img class="imgopshow" src="./img/111.jpg" alt=""/>
+        <img class="imgop" src="./img/222.jpg" alt=""/>
+        <img class="imgop" src="./img/333.jpg" alt=""/>
+        <img class="imgop" src="./img/444.jpg" alt=""/>
+        <img class="imgop" src="./img/555.jpg" alt=""/>
+        <img class="imgop" src="./img/666.jpg" alt=""/>
+        <img class="imgop" src="./img/777.jpg" alt=""/>
+        <img class="imgop" src="./img/888.jpg" alt=""/>
+    </div>
+    <div class="dian">
+        <div class="dbg"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<script>
+    /*图片  淡入淡出
+     点动
+     左右两边箭头*/
+    var time;//接受计时器
+    var aPar = document.getElementsByClassName("a")[0];
+    var block = document.getElementsByClassName("b")[0];
+    var dianpar = document.getElementsByClassName("dian")[0];
+    //获取左右按钮
+    var btnleft = document.getElementsByClassName("btnleft")[0];
+    var btnright = document.getElementsByClassName("btnright")[0];
+    var nowbg = dianpar.children[0];//当前变色的点元素
+    //调整层
+    for (var i = 0; i < aPar.children.length; i++) {
+        aPar.children[i].style.zIndex = aPar.children.length - i - 1;
+    }
+    showAnimate();
+    function showAnimate() {
+        time = setInterval(function () {
+            countAnimate(1);
+        }, 2000);
+    }
+    function countAnimate(num) {
+        for (var k = 0; k < num; k++) {
+            for (var i = 0; i < aPar.children.length; i++) {
+                var index = aPar.children[i].style.zIndex;
+                index++;
+                if (index == aPar.children.length) {
+                    index = 0;
+                    aPar.children[i].className = "imgop";
+                    dianpar.children[i].className = "";
+                }
+                if (index == aPar.children.length - 1) {
+                    dianpar.children[i].className = "dbg";
+                    nowbg = dianpar.children[i];
+                    aPar.children[i].className = "imgopshow";
+                }
+                aPar.children[i].style.zIndex = index;
+            }
+        }
+    }
+    block.onmouseenter = function () {
+        clearInterval(time);
+    }
+    block.onmouseleave = function () {
+        showAnimate();
+    }
+    for (var i = 0; i < dianpar.children.length; i++) {
+        dianpar.children[i].index = i;
+        dianpar.children[i].onmouseenter = function () {
+            nowbg.className = "";
+            this.className = "dbg";
+            var num = 0;
+            if (this.index - nowbg.index > 0) {
+                num = this.index - nowbg.index;
+            }
+            else {
+                num = dianpar.children.length - Math.abs(this.index - nowbg.index);
+            }
+            countAnimate(num);
+            nowbg = this;
+        }
+    }
+    //处理掉浏览器的默认选择
+    document.onselectstart = function () {
+        return false;
+    }
+    btnleft.onclick = function () {
+        countAnimate(7);
+    }
+    btnright.onclick = function () {
+        countAnimate(1);
+    }
+
+</script>
+</body>
+</html>
