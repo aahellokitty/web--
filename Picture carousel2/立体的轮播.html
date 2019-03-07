@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .block {
+            position: relative;
+            width: 900px;
+            height: 350px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .imagePar > div {
+            position: absolute;
+            width: 400px;
+            height: 200px;
+            transition: all 0.5s linear;
+        }
+
+        .imagePar > div:nth-child(1) {
+            top: 150px;
+            left: 250px;
+            z-index: 6;
+        }
+
+        .imagePar > div:nth-child(2) {
+            top: 100px;
+            left: 0;
+            z-index: 5;
+        }
+
+        .imagePar > div:nth-child(3) {
+            top: 50px;
+            left: 0;
+            z-index: 4;
+        }
+
+        .imagePar > div:nth-child(4) {
+            top: 00px;
+            left: 250px;
+            z-index: 3;
+        }
+
+        .imagePar > div:nth-child(5) {
+            top: 50px;
+            left: 500px;
+            z-index: 4;
+        }
+
+        .imagePar > div:nth-child(6) {
+            top: 100px;
+            left: 500px;
+            z-index: 5;
+        }
+
+        .imagePar > div > img {
+            width: 400px;
+            height: 200px;
+        }
+
+        .imagePar {
+            position: relative;
+            width: 900px;
+            height: 350px;
+        }
+        .btn{
+            width: 900px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            top: 155px;
+            z-index: 10;
+        }
+        .btn>span:nth-child(1){
+            width: 30px;
+            background-color: deeppink;
+            display: block;
+            float: left;
+            text-align: center;
+            line-height: 40px;
+            margin-left: -30px;
+            transition: all 0.5s linear;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .btn>span:nth-child(2){
+            width: 30px;
+            background-color: deeppink;
+            display: block;
+            float: right;
+            text-align: center;
+            line-height: 40px;
+            margin-right: -30px;
+            transition: all 0.5s linear;
+            opacity: 0;
+            cursor: pointer;
+        }
+        .marleft{
+            margin-left:0px !important;
+            opacity: 1 !important;
+        }
+        .marright{
+            margin-right:0px !important;
+            opacity: 1 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div class="imagePar">
+        <div><img src="./img/111.jpg" alt=""/></div>
+        <div><img src="./img/222.jpg" alt=""/></div>
+        <div><img src="./img/333.jpg" alt=""/></div>
+        <div><img src="./img/444.jpg" alt=""/></div>
+        <div><img src="./img/555.jpg" alt=""/></div>
+        <div><img src="./img/666.jpg" alt=""/></div>
+    </div>
+    <div class="btn">
+        <span><</span>
+        <span>></span>
+    </div>
+</div>
+<script src="js/imageSlider.js"></script>
+</body>
+</html>
