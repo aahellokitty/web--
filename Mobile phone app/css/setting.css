@@ -1,0 +1,102 @@
+body{
+	margin:0;
+	paddding:0;
+}
+.settingblock{
+	width:350px;
+	height:100%;
+}
+.list_top{
+	width:100%;
+	height:4rem;
+	background-color:gold;
+	line-height:4rem;
+}
+.list_top>span>a{
+	color:white;
+	font-size:28px;
+	font-weight: bold;
+	margin-left:1rem;
+	text-decoration: none;
+}
+.list_top>span:nth-child(2){
+	color:white;
+	font-size:25px;
+	font-weight: bold;
+	left:50%;
+	margin-left:25%;
+}
+.secondblock{
+	width:100%;
+	height:auto;
+	/*border:1px solid red;*/
+	overflow:hidden;
+	position:relative;
+}
+.secondblock>img{
+	width:auto;
+	height:15rem;
+}
+.ceng{
+	width:100%;
+	height:311px;
+	position:absolute;
+	top:0;
+	left:0;
+	background-color:rgba(0, 0, 0, 0.55);
+	z-index: 10;
+}
+.blacktext{
+	position:absolute;
+	width:10rem;
+	height:6rem;
+	/*border:1px solid green;*/
+	z-index: 4;
+	top:0;
+	left:1.5rem;
+	line-height:0.4rem;
+	
+}
+.blacktext>p:nth-child(1){
+	font-size:25px;
+	font-weight: bold;
+}
+.blacktext>p:nth-child(2){
+	font-size:15px;
+	font-weight: bold;
+}
+.littletext{
+	line-height:2rem;
+	position:absolute;
+	top:13rem;
+	left:0;
+	width:100%;
+	height:2rem;
+	background-color:rgba(0, 0, 0, 0.5);
+	color:white;
+	font-size:12px;
+}
+.littletext>span:nth-child(2){
+	float:right;
+}
+.shuiguo{
+	text-align: center;
+	width:auto;
+	height:3rem;
+	line-height:1rem;
+}
+.tubiao>div{
+	width:3rem;
+	height:3rem;
+	background-color:red;
+	border-radius:10px;
+	text-align: center;
+	line-height:3rem;
+	margin:1rem 1rem;
+	float:left;
+}
+.tubiao>div>i{
+	font-size:30px;
+	color:white;
+}
+

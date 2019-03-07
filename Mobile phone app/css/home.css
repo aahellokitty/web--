@@ -1,0 +1,45 @@
+body{
+	background-color:gold;
+	margin:0;
+	paddding:0;
+}
+.homeblock{
+	width:350px;
+	height:auto;
+}
+.p1{
+	font-weight:bold;
+	color:white;
+	font-size:35px;
+	margin-left:20%;
+	margin-top:8rem;
+}
+.p2{
+	font-weight:bold;
+	color:white;
+	font-size:35px;
+	margin-left:37%;
+	margin-top:-2rem;
+}
+.block{
+	width:50%;
+	height:3rem;
+	color:gold;
+	background-color:white;
+	line-height:3rem;
+	text-align:center;
+	font-size:25px;
+	font-weight:bold;
+	border-radius:10px;
+	left:50%;
+	margin-left:25%;
+	margin-top:10rem;
+}
+.block>p>a{
+	color:gold;
+	font-size:25px;
+	text-decoration: none;
+}
+.block>p>a:hover{
+	color:orange;
+}

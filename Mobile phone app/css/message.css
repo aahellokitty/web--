@@ -1,0 +1,84 @@
+body{
+	margin:0;
+	paddding:0;
+}
+.messageblock{
+	width:350px;
+	height:100%;
+}
+.list_top{
+	width:100%;
+	height:4rem;
+	background-color:gold;
+	line-height:4rem;
+}
+.list_top>span>a{
+	color:white;
+	font-size:28px;
+	font-weight: bold;
+	margin-left:1rem;
+	text-decoration: none;
+}
+.list_top>span:nth-child(2){
+	color:white;
+	font-size:25px;
+	font-weight: bold;
+	left:50%;
+	margin-left:25%;
+}
+.imgblock{
+	margin:1rem 1rem;
+	width:9rem;
+	height:7rem;
+	border:1px solid gold;
+	float:left;
+}
+.imgblock>img{
+	width:9rem;
+	height:7rem;
+}
+.imgtext{
+	width:8.2rem;
+	height:7rem;
+	/*background-color:red;*/
+	float:left;
+	margin:1rem auto;
+	line-height:0.2rem;
+}
+.imgtext>p:nth-child(1){
+	font-size:23px;
+	font-weight: bold;
+	margin-top:10px;
+}
+.imgtext>p:nth-child(2){
+	font-size:13px;
+	font-weight: bold;
+}
+.imgtext>p:nth-child(3){
+	font-size:13px;
+	margin-top:50px;
+	color:gray;
+}
+.imgtext>p:nth-child(4){
+	font-size:13px;
+	color:gray;
+}
+.xinxin{
+	width:4rem;
+	height:2rem;
+	margin-top:7rem;
+	margin-left:-2rem;
+	text-align:center;
+	float:left;
+}
+.xinxin>i{
+	font-size:25px;
+	color:gold;
+	float:left;
+}
+.xinxin>span{
+	font-size:18px;
+	float:left;
+	margin-top:0.2rem;
+	font-weight: bold;
+}
