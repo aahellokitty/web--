@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+省：<select id="city_1">
+    <option>—请选择—</option>
+</select>
+市：
+<select id="city_2">
+    <option>—请选择—</option>
+</select>
+区：
+<select id="city_3">
+    <option>—请选择—</option>
+</select>
+<script src="data/cityData.js"></script>
+<script>
+    var Data=city[0];
+    var city1=document.getElementById("city_1");
+    var city2=document.getElementById("city_2");
+    var city3=document.getElementById("city_3");
+    for(var key in Data){
+       /* var op=document.createElement("option");
+        op.innerHTML=Data[key].name;
+        /!*console.log(Data[key].name);*!/
+        op.setAttribute("value",1);
+        city1.appendChild(op);*/
+        var op=new Option(Data[key].name,key);//(文本值，value值)
+        city1.appendChild(op);
+    }
+    var child1;
+    city1.onchange=function(){
+        city2.options.length=1;
+        city3.options.length=1;
+        /*console.log(this.value);*/
+        /*console.log(Data[this.value].child);*/
+        child1=Data[this.value].child;
+
+        for(var key in child1){
+            /*console.log(child1);
+            console.log(key);*/
+            /*console.log(child1[key]);*/
+            var op=new Option(child1[key].name,key);
+            city2.appendChild(op);
+        }
+    }
+    city2.onchange=function(){
+        /*var citynumber2=this.value;*/
+        /*console.log(this.value);*/
+        city3.options.length=1;
+        var child2=child1[this.value];
+        console.log(child1[this.value]);
+        for(var key in child2.child){
+            var op=new Option(child2.child[key],key);
+            /*console.log(child2.child[key],key);*/
+            city3.appendChild(op);
+        }
+    }
+</script>
+</body>
+</html>
