@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        .car{
+            width: 1600%;
+            height: 660px;
+            background-image: url("./img/alfa.png");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            animation: car 10s steps(16) infinite;
+        }
+        @keyframes car {
+            from{
+                transform: translatex(0px);
+            }
+            to{
+                transform: translatex(-100%);
+            }
+        }
+    </style>
+</head>
+<body>
+   <div class="car">
+
+   </div>
+</body>
+</html>

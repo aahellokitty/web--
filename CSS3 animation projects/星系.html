@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        .t{
+            position: relative;
+            left: 50%;
+            top: 50%;
+            margin-left: -80px;
+            margin-top: -80px;
+            width: 160px;
+            height: 160px;
+            transform-style: preserve-3d;
+            animation: t_an 5s linear infinite;
+        }
+        .t>div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px #ff8818,
+            0px 0px 20px #ff6817,
+            0px 0px 30px #ff7425,
+            0px 0px 40px #ffa42d,
+            0px 0px 50px #ffd137,
+            0px 0px 60px #fff72f;
+        }
+        .t>div:nth-child(1){
+              width: 160px;
+              height: 160px;
+        }
+        .t>div:nth-child(2){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height: 110px;
+            transform: translatez(55px);
+        }
+        .t>div:nth-child(3){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height: 110px;
+            transform: translatez(-55px);
+        }
+        .t>div:nth-child(4){
+            width: 160px;
+            height: 160px;
+            transform: rotatey(90deg);
+        }
+        .t>div:nth-child(5){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height: 110px;
+            transform: translatex(55px) rotatey(90deg);
+        }
+        .t>div:nth-child(6){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height: 110px;
+            transform: translatex(-55px) rotatey(90deg);
+        }
+        .t>div:nth-child(7){
+            width: 160px;
+            height: 160px;
+            transform: rotatex(90deg);
+        }
+        .t>div:nth-child(8){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height:110px;
+            transform: translatey(55px) rotatex(90deg);
+        }
+        .t>div:nth-child(9){
+            left: 25px;
+            top: 25px;
+            width: 110px;
+            height: 110px;
+            transform: translatey(-55px) rotatex(90deg);
+        }
+        @keyframes t_an {
+            from{
+                transform: rotatez(0deg);
+            }
+            to{
+                transform: rotatez(360deg);
+            }
+        }
+        .g1{
+            position: relative;
+            left: 50%;
+            top: 50%;
+            margin-top: -300px;
+            margin-left: -300px;
+            width:600px;
+            height: 600px;
+            border: 2px dashed white;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            animation: t_an 5s linear infinite;
+        }
+        .s{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            animation: t_an 5s linear infinite;
+        }
+        .s>div{
+            position: absolute;
+            left: 0;
+            top: 0;
+            border-radius: 50%;
+            box-sizing: border-box;
+            box-shadow: 0px 0px 10px #14c9ff,
+            0px 0px 20px #3df3ff,
+            0px 0px 30px #79fffa,
+            0px 0px 40px #a0fffc,
+            0px 0px 50px #b9fff1,
+            0px 0px 60px #d5fff5;
+        }
+        .s>div:nth-child(1){
+            width: 100px;
+            height: 100px;
+        }
+        .s>div:nth-child(2){
+            left: 15px;
+            top: 15px;
+            width: 70px;
+            height: 70px;
+            transform: translatez(30px);
+        }
+        .s>div:nth-child(3){
+            left: 15px;
+            top: 15px;
+            width: 70px;
+            height: 70px;
+            transform: translatez(-30px);
+        }
+        .s>div:nth-child(4){
+            width: 100px;
+            height: 100px;
+            transform: rotatey(90deg);
+        }
+        .s>div:nth-child(5){
+            left: 15px;
+            top: 15px;
+            width: 70px;
+            height: 70px;
+            transform: translatex(30px) rotatey(90deg);
+        }
+        .s>div:nth-child(6){
+            left: 15px;
+            top: 15px;
+            width:70px;
+            height:70px;
+            transform: translatex(-30px) rotatey(90deg);
+        }
+        .s>div:nth-child(7){
+            width: 100px;
+            height: 100px;
+            transform: rotatex(90deg);
+        }
+        .s>div:nth-child(8){
+            left: 15px;
+            top: 15px;
+            width: 70px;
+            height:70px;
+            transform: translatey(30px) rotatex(90deg);
+        }
+        .s>div:nth-child(9){
+            left: 15px;
+            top: 15px;
+            width: 70px;
+            height: 70px;
+            transform: translatey(-30px) rotatex(90deg);
+        }
+
+        .g2{
+            position: relative;
+            width:1000px;
+            height: 1000px;
+            border: 2px dashed white;
+            box-sizing: border-box;
+            border-radius: 50%;
+            transform-style: preserve-3d;
+            animation: t_an 5s linear infinite;
+        }
+        .sw{
+            left: 50%;
+            top: -50px;
+            margin-left: -50px;
+        }
+        .sw>div{
+            box-shadow: 0px 0px 10px #fff50d,
+            0px 0px 20px #fffe2d,
+            0px 0px 30px #fffa6e,
+            0px 0px 40px #fff89b,
+            0px 0px 50px #fffabb,
+            0px 0px 60px #fffeec;
+        }
+
+        .x{
+            transform: rotatex(80deg);
+            transform-style: preserve-3d;
+        }
+
+    </style>
+</head>
+<body>
+<div class="x">
+    <div class="g2">
+        <div class="s sw">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="g1">
+            <div class="t">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <div class="s">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

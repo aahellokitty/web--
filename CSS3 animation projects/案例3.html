@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body,html{
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: black;
+        }
+        .block{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            margin: 50px auto;
+            transform: rotatex(75deg);
+        }
+        .block>div:nth-child(1){
+            position: absolute;
+            width: 90%;
+            height: 90%;
+            left: 5%;
+            top: 5%;
+            border: 1px solid #018eff;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 2400ms linear infinite alternate;
+        }
+        .block>div:nth-child(2){
+            position: absolute;
+            width: 80%;
+            height: 80%;
+            left: 10%;
+            top: 10%;
+            border: 1px solid #0f06ff;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 2100ms linear infinite alternate;
+        }
+        .block>div:nth-child(3){
+            position: absolute;
+            width: 70%;
+            height: 70%;
+            left: 15%;
+            top: 15%;
+            border: 1px solid #8300ff;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 1800ms linear infinite alternate;
+        }
+        .block>div:nth-child(4){
+            position: absolute;
+            width: 60%;
+            height: 60%;
+            left: 20%;
+            top: 20%;
+            border: 1px solid #9d0bff;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 1500ms linear infinite alternate;
+        }
+        .block>div:nth-child(5){
+            position: absolute;
+            width: 50%;
+            height: 50%;
+            left: 25%;
+            top: 25%;
+            border: 1px solid #e923ff;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 1200ms linear infinite alternate;
+        }
+        .block>div:nth-child(6){
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            left: 30%;
+            top: 30%;
+            border: 1px solid #ff0dc4;
+            box-sizing: border-box;
+            border-radius: 50%;
+
+            animation: transY 1s 900ms linear infinite alternate;
+        }
+        .block>div:nth-child(7){
+            position: absolute;
+            width: 30%;
+            height: 30%;
+            left: 35%;
+            top: 35%;
+            border: 1px solid #ff1e4c;
+            box-sizing: border-box;
+            border-radius: 50%;
+            animation: transY 1s 600ms linear infinite alternate;
+        }
+        .block>div:nth-child(8){
+            position: absolute;
+            width: 20%;
+            height: 20%;
+            left: 40%;
+            top: 40%;
+            border: 1px solid #ff701d;
+            box-sizing: border-box;
+            border-radius: 50%;
+            animation: transY 1s 300ms linear infinite alternate;
+        }
+        .block>div:nth-child(9){
+            position: absolute;
+            width: 10%;
+            height: 10%;
+            left: 45%;
+            top: 45%;
+            border: 1px solid #ffd019;
+            box-sizing: border-box;
+            border-radius: 50%;
+            animation: transY 1s 0ms linear infinite alternate;
+        }
+        @keyframes transY {
+            from{
+                transform: translatey(0px);
+            }
+            to{
+                transform: translatey(-200px);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="block">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+</body>
+</html>
